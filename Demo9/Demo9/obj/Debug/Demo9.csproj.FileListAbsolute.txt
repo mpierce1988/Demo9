@@ -9,3 +9,14 @@ C:\DatabaseProgramming\github_repos\Demo9\Demo9\Demo9\bin\Debug\Demo9.exe
 C:\DatabaseProgramming\github_repos\Demo9\Demo9\Demo9\bin\Debug\Demo9.pdb
 C:\DatabaseProgramming\github_repos\Demo9\Demo9\Demo9\obj\Debug\Demo9.exe
 C:\DatabaseProgramming\github_repos\Demo9\Demo9\Demo9\obj\Debug\Demo9.pdb
+C:\src\Spring 2022\Database Programming\Demo\DBProgrammingDemo9\Demo9\Demo9\bin\Debug\Demo9.exe.config
+C:\src\Spring 2022\Database Programming\Demo\DBProgrammingDemo9\Demo9\Demo9\bin\Debug\Demo9.exe
+C:\src\Spring 2022\Database Programming\Demo\DBProgrammingDemo9\Demo9\Demo9\bin\Debug\Demo9.pdb
+C:\src\Spring 2022\Database Programming\Demo\DBProgrammingDemo9\Demo9\Demo9\obj\Debug\Demo9.csproj.AssemblyReference.cache
+C:\src\Spring 2022\Database Programming\Demo\DBProgrammingDemo9\Demo9\Demo9\obj\Debug\Demo9.csproj.SuggestedBindingRedirects.cache
+C:\src\Spring 2022\Database Programming\Demo\DBProgrammingDemo9\Demo9\Demo9\obj\Debug\DBProgrammingDemo9.frmProductMaintenance.resources
+C:\src\Spring 2022\Database Programming\Demo\DBProgrammingDemo9\Demo9\Demo9\obj\Debug\Demo9.Properties.Resources.resources
+C:\src\Spring 2022\Database Programming\Demo\DBProgrammingDemo9\Demo9\Demo9\obj\Debug\Demo9.csproj.GenerateResource.cache
+C:\src\Spring 2022\Database Programming\Demo\DBProgrammingDemo9\Demo9\Demo9\obj\Debug\Demo9.csproj.CoreCompileInputs.cache
+C:\src\Spring 2022\Database Programming\Demo\DBProgrammingDemo9\Demo9\Demo9\obj\Debug\Demo9.exe
+C:\src\Spring 2022\Database Programming\Demo\DBProgrammingDemo9\Demo9\Demo9\obj\Debug\Demo9.pdb
