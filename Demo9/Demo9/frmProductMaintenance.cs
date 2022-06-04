@@ -133,32 +133,22 @@ namespace DBProgrammingDemo9
         private void btnDelete_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Are you sure you wish to delete?", "Are you sure?", MessageBoxButtons.OKCancel);
-
-            if(result == DialogResult.Cancel)
+            // exit method if user selects cancel on dialog box
+            if (result == DialogResult.Cancel)
             {
                 return;
             }
 
-            string sqlDeleteQuery = $"DELETE from Products WHERE ProductId = {txtProductId.Text}";
-
-            int rowsAffected = DataAccess.SendData(sqlDeleteQuery);
-
-            if (rowsAffected == 1)
-            {
-                // successful
-                MessageBox.Show("Product deleted successfully");
-                LoadFirstProduct();
-            }
-            else
-            {
-                MessageBox.Show("Product not deleted successfully");
-            }
+            // delete product
+            DeleteProduct();
         }
+
+        
 
         #endregion
 
         #region [Retrieves]
-        
+
         /// <summary>
         /// Load the Suppliers and bind the combobox
         /// </summary>
@@ -500,7 +490,7 @@ VALUES('{txtProductName.Text.Trim()}', {cmbSuppliers.SelectedValue}, {cmbCategor
         private void ProductChanges()
         {
             string sql =
-                $@"UPDATE Products SET ProductName = '{txtProductName.Text.Trim()}', supplierID = {cmbSuppliers.SelectedValue}, categoryId = {cmbCategories.SelectedValue}, QuantityPerUnit = '{txtQtyPerUnit.Text.Trim()}', UnitPrice = {txtUnitPrice.Text.Trim()},UnitsInStock = {txtStock.Text.Trim()}, UnitsOnOrder = {txtOnOrder.Text.Trim()}, ReorderLevel = {txtReorder.Text.Trim()}, Discontinued = {(chkDiscontinued.Checked ? 1 : 0)}  WHERE ProductId = {txtProductId.Text}";
+                $@"UPDATE Products SET ProductName = '{DataAccess.ReplaceSql(txtProductName.Text.Trim())}', supplierID = {cmbSuppliers.SelectedValue}, categoryId = {cmbCategories.SelectedValue}, QuantityPerUnit = '{DataAccess.ReplaceSql(txtQtyPerUnit.Text.Trim())}', UnitPrice = {txtUnitPrice.Text.Trim()},UnitsInStock = {txtStock.Text.Trim()}, UnitsOnOrder = {txtOnOrder.Text.Trim()}, ReorderLevel = {txtReorder.Text.Trim()}, Discontinued = {(chkDiscontinued.Checked ? 1 : 0)}  WHERE ProductId = {txtProductId.Text}";
         
             int rowsAffected = DataAccess.SendData(sql);
 
@@ -512,6 +502,38 @@ VALUES('{txtProductName.Text.Trim()}', {cmbSuppliers.SelectedValue}, {cmbCategor
             {
                 MessageBox.Show("No Rows Updated");
             }
+        }
+
+        private void DeleteProduct()
+        {
+            string sqlCheckOrderDetails =
+                $"SELECT COUNT(*) FROM [Order Details] WHERE ProductID = {txtProductId.Text.Trim()}";
+            int rowsAffectedInOrderDetails = Convert.ToInt32(DataAccess.GetValue(sqlCheckOrderDetails));
+            
+            if(rowsAffectedInOrderDetails == 0)
+            {
+                string sqlDeleteQuery = $"DELETE from Products WHERE ProductId = {txtProductId.Text}";
+
+                int rowsAffected = DataAccess.SendData(sqlDeleteQuery);
+
+                if (rowsAffected == 1)
+                {
+                    // successful
+                    MessageBox.Show("Product deleted successfully");
+                    LoadFirstProduct();
+                }
+                else
+                {
+                    MessageBox.Show("Product not deleted successfully");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Product cannot be deleted");
+            }
+
+
+            
         }
     }
 }
